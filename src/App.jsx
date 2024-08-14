@@ -30,9 +30,9 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <NavBar />
-      <ItemListConteiner />
+      <ItemListConteiner texto="Lo importante no es que vengas sino que vuelvas"/>
     </>
   )
 }
-
+  
 export default App

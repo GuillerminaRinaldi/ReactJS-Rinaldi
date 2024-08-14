@@ -1,6 +1,6 @@
-import ".itemListConteiner.css"
+import "./ItemListConteiner.css"
 
-export const ItemListConteiner = () => {
+export const ItemListConteiner = (props) => {
     return (
         <div> ItemListConteiner </div>
     )

@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListConteiner texto = "Lo importante no es que vengas sino que vuelvas"/>
+      <ItemListConteiner texto="Lo importante no es que vengas sino que vuelvas"/>
     </>
   )
 }

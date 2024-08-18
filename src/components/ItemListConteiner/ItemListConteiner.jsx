@@ -1,7 +1,9 @@
 import "./ItemListConteiner.css"
 
-export const ItemListConteiner = (props) => {
+export const ItemListConteiner = ({ texto }) => {
     return (
-        <div> ItemListConteiner </div>
+        <div> 
+            <h1>{texto}</h1>
+        </div>
     )
 }

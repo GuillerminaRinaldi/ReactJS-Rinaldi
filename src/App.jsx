@@ -1,20 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Button from './components/Button'
-import { NavBar } from './components/NavBar/NavBar'
-import { ItemListConteiner } from './components/ItemListConteiner/ItemListConteiner'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { NavBar } from './components/NavBar/NavBar';
+import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <Router>
       <NavBar />
-      <ItemListConteiner texto="Lo importante no es que vengas sino que vuelvas"/>
-    </>
-  )
+      <Routes>
+        <Route path="/" element={<ItemListContainer texto="Bienvenido a la tienda de animales" />} />
+        <Route path="/category/:categoryId" element={<ItemListContainer texto="Filtrado por categoría" />} />
+        <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+        <Route path="*" element={<h2>Página no encontrada</h2>} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

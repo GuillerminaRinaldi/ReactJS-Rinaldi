@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ProductCard from '../ProductCard/ProductCard'; // Componente para mostrar cada producto
+import ProductCard from '../ProductCard/ProductCard'; 
 
 export const ItemListContainer = ({ texto }) => {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
 
   useEffect(() => {
-    // Simular llamada a la API (esto se conecta al punto 5)
     const fetchProducts = async () => {
       try {
         const response = await fetch(`https://api.mipagina.com/products${categoryId ? `?category=${categoryId}` : ''}`);
@@ -19,7 +18,7 @@ export const ItemListContainer = ({ texto }) => {
     };
 
     fetchProducts();
-  }, [categoryId]); // Dependencias que escuchan cambios en la URL
+  }, [categoryId]); 
 
   return (
     <div>

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ItemCount from '../ItemCount/ItemCount'; // Contador para añadir al carrito
+import ItemCount from '../ItemCount/ItemCount'; 
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
   const { itemId } = useParams();
 
   useEffect(() => {
-    // Simular llamada a la API para obtener detalles del producto (esto se conecta al punto 5)
     const fetchProduct = async () => {
       try {
         const response = await fetch(`https://api.mipagina.com/products/${itemId}`);
@@ -19,10 +18,10 @@ export const ItemDetailContainer = () => {
     };
 
     fetchProduct();
-  }, [itemId]); // Dependencia que escucha cambios en la URL
+  }, [itemId]); 
 
   if (!product) {
-    return <div>Loading...</div>; // Mostrar algo mientras se carga el producto
+    return <div>Loading...</div>; 
   }
 
   return (

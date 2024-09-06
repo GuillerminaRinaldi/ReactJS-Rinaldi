@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import ProductCard from '../ProductCard/ProductCard'; 
+import React, { useEffect, useState } from "react";
+import { getProducts } from "../../Api"; 
 
 export const ItemListContainer = ({ texto }) => {
-  const [products, setProducts] = useState([]);
-  const { categoryId } = useParams();
+  const [items, setItems] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(`https://api.mipagina.com/products${categoryId ? `?category=${categoryId}` : ''}`);
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, [categoryId]); 
+    setLoading(true);
+    getProducts().then((data) => {
+      setItems(data); 
+      setLoading(false); 
+    });
+  }, []);
 
   return (
     <div>
       <h2>{texto}</h2>
-      <div className="product-list">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} /> // Punto 6
-        ))}
-      </div>
+      {loading ? (
+        <p>Cargando productos...</p>
+      ) : (
+        <ul style={{ listStyle: "none" }}>
+          {items.map((item) => (
+            <li key={item.id} style={{ marginBottom: "20px" }}>
+              <h3>{item.title}</h3>
+              <img src={item.image} alt={item.title} width="150" />
+              <p>Precio: ${item.price}</p>
+              <p>{item.description}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
-
-export default ItemListContainer;

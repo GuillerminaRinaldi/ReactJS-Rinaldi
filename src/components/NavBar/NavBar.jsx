@@ -1,18 +1,18 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 import { CartWidget } from "../CartWidget/CartWidget";
 
-
 export const NavBar = () => {
-    return (
-        <nav className="navbar">
-            <img src="data:image/png;base64,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" alt="Logo" className="navbar-logo"/>
-            <ul className="navbar-menu">
-                <li><a href="#link1">Link 1</a></li>
-                <li><a href="#link2">Link 2</a></li>
-                <li><a href="#link3">Link 3</a></li>
-            </ul>
-            <CartWidget />
-        </nav>
-    );
-}
+  return (
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/category/electronics">Electronics</Link></li>
+        <li><Link to="/category/jewelery">Jewelery</Link></li>
+        <li><Link to="/cart">Cart</Link></li>
+      </ul>
+      <CartWidget />
+    </nav>
+  );
+};
+

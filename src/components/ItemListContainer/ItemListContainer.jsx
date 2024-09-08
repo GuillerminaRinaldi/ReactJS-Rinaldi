@@ -1,39 +1,33 @@
-import React, { useEffect, useState } from "react";
-import products from "../../assets/data/products";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getProducts, getProductsByCategory } from '../api/api';
+import { ProductCard } from './ProductCard';
 
-export const ItemListContainer = ({ texto }) => {
-  const [items, setItems] = useState([]);
+export const ItemListContainer = ({ addToCart }) => {
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const getProducts = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(products);
-      }, 1000); 
-    });
-
-    getProducts.then((data) => setItems(data));
-  }, []);
+    const fetchData = async () => {
+      if (category) {
+        const filteredProducts = await getProductsByCategory(category);
+        setProducts(filteredProducts);
+      } else {
+        const allProducts = await getProducts();
+        setProducts(allProducts);
+      }
+    };
+    fetchData();
+  }, [category]);
 
   return (
     <div>
-      <h2>{texto}</h2>
-      <ul>
-        {items.length === 0 ? (
-          <p>Cargando productos...</p>
-        ) : (
-          items.map((item) => (
-            <li key={item.id}>
-              <h3>{item.name}</h3>
-              <p>Categoría: {item.category}</p>
-              <img src={item.image} alt={item.name} width="100" />
-              <p>{item.description}</p>
-              <p>Precio: ${item.price}</p>
-            </li>
-          ))
-        )}
-      </ul>
+      <h2>{category ? `Category: ${category}` : 'All Products'}</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} addToCart={addToCart} />
+        ))}
+      </div>
     </div>
   );
 };
-
-export default ItemListContainer;

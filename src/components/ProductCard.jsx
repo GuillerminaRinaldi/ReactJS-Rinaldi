@@ -6,8 +6,8 @@ export const ProductCard = ({ product, addToCart }) => {
       <h3>{product.title}</h3>
       <img src={product.image} alt={product.title} style={{ width: '100px' }} />
       <p>Price: ${product.price}</p>
-      <Link to={`/product/${product.id}`}>View Details</Link>
-      <button onClick={() => addToCart(product)}>Add to Cart</button>
+      <Link to={`/product/${product.id}`}>Ver detalle</Link>
+      <button onClick={() => addToCart(product)}>Agregar al carrito</button>
     </div>
   );
 };

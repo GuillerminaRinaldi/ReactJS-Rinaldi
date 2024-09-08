@@ -19,16 +19,16 @@ export const Cart = ({ cart }) => {
 
   return (
     <div>
-      <h2>Your Cart</h2>
+      <h2>Tu carrito</h2>
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p>Tu carrito esta vacio</p>
       ) : (
         <ul>
           {cart.map((product, index) => (
             <li key={index}>
               <h3>{product.title}</h3>
-              <p>Price: ${product.price}</p>
-              <p>Quantity: {quantities[index]}</p>
+              <p>Precio: ${product.price}</p>
+              <p>Cantidad: {quantities[index]}</p>
               <button onClick={() => increaseQuantity(index)}>+</button>
               <button onClick={() => decreaseQuantity(index)}>-</button>
             </li>

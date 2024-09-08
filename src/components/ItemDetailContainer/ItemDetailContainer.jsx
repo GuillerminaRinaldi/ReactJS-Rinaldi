@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductById } from '../api/api';
+import { getProductById } from '../../api/api';
 
 export const ItemDetailContainer = ({ addToCart }) => {
   const { id } = useParams();
@@ -22,10 +22,10 @@ export const ItemDetailContainer = ({ addToCart }) => {
           <img src={product.image} alt={product.title} style={{ width: '150px' }} />
           <p>{product.description}</p>
           <p>Price: ${product.price}</p>
-          <button onClick={() => addToCart(product)}>Add to Cart</button>
+          <button onClick={() => addToCart(product)}>Agregar al carrito</button>
         </>
       ) : (
-        <p>Loading product details...</p>
+        <p>Cargando detalle de los productos...</p>
       )}
     </div>
   );

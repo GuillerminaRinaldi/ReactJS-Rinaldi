@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts, getProductsByCategory } from '../api/api';
-import { ProductCard } from './ProductCard';
+import { getProducts, getProductsByCategory } from '../../api/api';
+import { ProductCard } from '../ProductCard';
 
 export const ItemListContainer = ({ addToCart }) => {
   const { category } = useParams();

@@ -7,12 +7,13 @@ export const NavBar = () => {
     <nav>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/category/electronics">Electronics</Link></li>
-        <li><Link to="/category/jewelery">Jewelery</Link></li>
-        <li><Link to="/cart">Cart</Link></li>
+        <li><Link to="/category/electronics">Electronica</Link></li>
+        <li><Link to="/category/jewelery">Joyas</Link></li>
+        <li><Link to="/cart">Carrito</Link></li>
       </ul>
       <CartWidget />
     </nav>
   );
 };
+
 

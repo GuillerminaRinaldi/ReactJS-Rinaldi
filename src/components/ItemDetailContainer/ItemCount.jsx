@@ -11,7 +11,7 @@ const ItemCount = () => {
       <button onClick={handleDecrement}>-</button>
       <span>{count}</span>
       <button onClick={handleIncrement}>+</button>
-      <button onClick={() => console.log(`Added ${count} items to cart`)}>Add to Cart</button>
+      <button onClick={() => console.log(`Added ${count} items to cart`)}>Agregar al carrito</button>
     </div>
   );
 };

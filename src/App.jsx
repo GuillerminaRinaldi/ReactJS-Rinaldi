@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
-import CartWidget, { Cart } from './components/CartWidget/CartWidget';
+import CartWidget from './components/CartWidget/CartWidget';
+import { Cart } from './components/CartWidget/CartWidget';  
 import { useState } from 'react';
 
 function App() {

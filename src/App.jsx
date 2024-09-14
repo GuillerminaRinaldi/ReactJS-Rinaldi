@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <CartWidget />
+      <CartWidget cart={cart} /> 
       <Routes>
         <Route path="/" element={<ItemListContainer addToCart={addToCart} />} />
         <Route path="/category/:category" element={<ItemListContainer addToCart={addToCart} />} />
@@ -23,6 +23,7 @@ function App() {
         <Route path="/cart" element={<Cart cart={cart} />} />
       </Routes>
     </Router>
+
   );
 }
 

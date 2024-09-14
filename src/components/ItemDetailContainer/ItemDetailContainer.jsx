@@ -9,10 +9,12 @@ export const ItemDetailContainer = ({ addToCart }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       const productData = await getProductById(id);
+      console.log("Product Data:", productData);  
       setProduct(productData);
     };
     fetchProduct();
   }, [id]);
+  
 
   return (
     <div>
